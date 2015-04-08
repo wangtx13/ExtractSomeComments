@@ -107,9 +107,9 @@ public class ExtractSomeComments {
                                     commentsStart = true;
                                 }
                                 
-                                //Check whether ".../**...*/" will start
+                                //Don't extract comments like ".../**...*/".
                                 if(currentChar == '*' && lastChar == '*' && lastLastChar == '/') {
-                                    commentsStart = true;
+                                    commentsStart = false;
                                     outputStr.deleteCharAt(outputStr.length() - 1);
                                 }
                                 

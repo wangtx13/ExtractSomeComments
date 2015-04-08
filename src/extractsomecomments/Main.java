@@ -7,13 +7,10 @@
 package extractsomecomments;
 
 import java.io.File;
-import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -49,13 +46,13 @@ public class Main {
         String timeStampStr = sdf.format(ts);
         
         //Create a new folder
-        String folderPath = "/Users/apple/NetBeansProjects/ExtractComments/output/all-" + timeStampStr + "/";
+        String folderPath = "/Users/apple/NetBeansProjects/ExtractSomeComments/output/except-javadoc-comments-" + timeStampStr + "/";
         createDir(folderPath);
         
-        File inputRootFile = new File("/Users/apple/NetBeansProjects/ExtractComments/sourceCode");
+        File inputRootFile = new File("/Users/apple/NetBeansProjects/ExtractSomeComments/sourceCode");
         ArrayList<String> path = new ArrayList<>();
         if(!inputRootFile.isDirectory()) {
-            System.out.println("Please input a directory.");
+            System.out.println("Please input a extisted directory.");
         } else {
             TraversalFiles.fileList(inputRootFile, 0, path, folderPath);
         }
